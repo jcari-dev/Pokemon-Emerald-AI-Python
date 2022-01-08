@@ -1,3 +1,7 @@
 *.sav
 *.gba
 rom/
+*.pyc
+.vscode/
+.vscode
+.DS_Store

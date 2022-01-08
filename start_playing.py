@@ -1,6 +1,3 @@
-# import os
-# os.startfile(".\\rom\\rom.gba")
+from functions.before_title_screen.launch_game import check_os_launch_game
 
-# import psutil    
-# "someProgram" in (p.name() for p in psutil.process_iter())
-from functions.before_title_screen.check_process import check_if_process_alive
+check_os_launch_game()
