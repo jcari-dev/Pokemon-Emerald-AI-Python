@@ -1,7 +1,5 @@
 import psutil
 
-
-
 def check_if_process_alive(processName):
     for proc in psutil.process_iter():
         try:
