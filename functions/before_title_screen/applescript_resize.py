@@ -1,5 +1,6 @@
 import subprocess
 
+
 def emulator_resize():
     scpt_launch = """
         tell application "Finder"
