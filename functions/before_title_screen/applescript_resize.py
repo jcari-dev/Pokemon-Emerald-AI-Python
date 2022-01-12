@@ -1,5 +1,7 @@
 import subprocess
+#            set position of window 1 to {(item 3 of screen_resolution) / 3.5, (item 4 of screen_resolution) / 4}
 
+#            set size of window 1 to {640, 480}
 
 def emulator_resize():
     scpt_launch = """
@@ -8,9 +10,14 @@ def emulator_resize():
         end tell
         tell application "System Events" to tell process "mGBA"
             set frontmost to true
-            set position of window 1 to {(item 3 of screen_resolution) / 3.5, (item 4 of screen_resolution) / 4}
+            set position of window 1 to {0,0}
+        end tell
+        tell application "Terminal"
+            set position of window 1 to {item 3 of screen_resolution / 1.8, item 4 of screen_resolution / 4}
             set size of window 1 to {640, 480}
         end tell
     """
     result = subprocess.run(['osascript', '-e', scpt_launch])
     return result.stdout
+
+# emulator_resize()

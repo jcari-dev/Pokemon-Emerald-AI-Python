@@ -5,3 +5,4 @@ rom/
 .vscode/
 .vscode
 .DS_Store
+*.png
