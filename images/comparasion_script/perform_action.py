@@ -22,7 +22,15 @@ def perform(action):
 
     if difference == None:
         print('Action attempted, but screen did not changed. retrying')
+<<<<<<< HEAD
         return perform(action)
     else:
         print('Action completed')
         return True
+=======
+
+        return perform(action)
+    else:
+        print('Action completed')
+        return True
+>>>>>>> 26011173d62d8452cd9916a470c5935e789be1f5
