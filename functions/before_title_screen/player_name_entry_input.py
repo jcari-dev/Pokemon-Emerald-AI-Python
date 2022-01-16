@@ -5,7 +5,7 @@ def validate_name(name):
 
     if not len(name) > 0 or not len(name) <= 7:
         print(f"Maximum 7 Characters! Please try again.")
-    elif re.match(r"^[0-9a-zA-Z,.!?\/\"']-", name):
+    elif re.match(r"^[0-9a-zA-Z,.!?/]-", name):
         print(f"Contains a non-supported character!")
     else:
 
