@@ -172,6 +172,21 @@ import itertools
 #     flatted_sequence.append('enter')
 #     flatted_sequence.append('x')
 #     flatted_sequence.append('x')
+def get_movement_for_character(index_list):
+  starting_point = [0,0]
+  command_list = []
+  for index, character_indexes in enumerate(index_list):
+    # print(character_indexes[0], character_indexes[1])
+    y_axis, x_axis = character_indexes[0], character_indexes[1]
+    y_diff, x_diff = y_axis - starting_point[1], x_axis - starting_point[0]
+    if y_diff > starting_point[1]:
+      for diff in range(y_diff):
+        command_list.append("up")
+    elif y_diff < starting_point[1]:
+      for diff in range(y_diff):
+        command_list.append('down')
+    
+  print(command_list)
 
 
 def get_index_of_characters(name):
