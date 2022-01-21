@@ -2,11 +2,33 @@ import time
 import pyautogui
 import time
 from pyscreeze import ImageNotFoundException
-from images.comparasion_script.perform_action import perform
+from images.comparasion_script.perform_action import perform, perform_quick
 from functions.in_game_actions.change_text_speed import change_text_speed_to_fast_and_start_game
+from functions.in_game_actions.write_player_name import get_index_of_characters
 import json
 
 pyautogui.useImageNotFoundException()
+
+def get_to_truck():
+    is_truck_there = None
+    while (is_truck_there == None):
+        try:
+            is_truck_there = pyautogui.locateOnScreen(
+                'images/starting_truck/starting_truck_ready.png', grayscale=True)
+            print('YAY WE OUT!')
+        except Exception as e:
+            perform('c')
+    
+    
+
+def write_name(name):
+    actions_to_perform = get_index_of_characters(name)
+    print(f'Will try to write {name}')
+    for action in actions_to_perform:
+        perform_quick(action)
+        print(f'Did {action}')
+    return get_to_truck()
+    
 
 
 def select_gender():
@@ -15,6 +37,7 @@ def select_gender():
     gender_data = json.load(player_data_file)
 
     gender_data_selection = gender_data["gender"]
+    name_data_selection = gender_data["name"]
 
     if gender_data_selection == "boy":
         perform("x")
@@ -25,6 +48,7 @@ def select_gender():
         perform("x")
         perform("x")
         print("gender selected, girl")
+    return write_name(name_data_selection)
 
 
 def get_to_select_gender():
@@ -37,7 +61,7 @@ def get_to_select_gender():
             print('IMAGE FOUND GENDER')
         except Exception as e:
             print('from exception')
-            perform('x')
+            perform('c')
     select_gender()
 
 

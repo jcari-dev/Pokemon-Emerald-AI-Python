@@ -1,4 +1,4 @@
-# import timeit
+import time
 import itertools
 
 
@@ -28,10 +28,10 @@ def get_movement_for_character(index_list):
                 symbols = True
                 caps = False
         elif y_axis >= 4:
-            print(starting_point)
+            # print(starting_point)
             starting_point[1] += 4
             if starting_point[1] >= 8:
-                print(starting_point[1])
+                # print(starting_point[1])
                 if starting_point[1] >= 10:
                     starting_point[1] -= 4
                 starting_point[1] -= 4
@@ -51,11 +51,11 @@ def get_movement_for_character(index_list):
             lower = False
             symbols = False
             caps = True
-            print(y_axis, starting_point, 'got the 1?')
+            # print(y_axis, starting_point, 'got the 1?')
             starting_point[1] = 0
-            print(starting_point[1])
+            # print(starting_point[1])
 
-        print(x_axis, y_axis)
+        # print(x_axis, y_axis)
 
 
         x_diff, y_diff = x_axis - starting_point[0], starting_point[1] - y_axis
@@ -77,8 +77,10 @@ def get_movement_for_character(index_list):
                 command_list.append('up')
         command_list.append('x')
         starting_point = character_indexes
-
-    print(command_list)
+    command_list.append('enter')
+    command_list.append('x')
+    command_list.append('x')
+    return command_list
 
 
 def get_index_of_characters(name):
@@ -97,7 +99,7 @@ def get_index_of_characters(name):
         ("!", "?", " ", " ", "/", "-"),
     )
 
-    print(character_list[8][0])
+    # print(character_list[8][0])
     index_locations = []
 
     for index_name, name_character in enumerate(name):
@@ -106,10 +108,10 @@ def get_index_of_characters(name):
                 if name_character == inner_character:
                     index_locations.append([index_inner, index_array])
 
-    print(index_locations)
+    # print(index_locations)
 
-    get_movement_for_character(index_locations)
-    return index_locations
+    return get_movement_for_character(index_locations)
+    # return index_locations
 
 
-get_index_of_characters('1J3nni3')
+# print(get_index_of_characters('Jennie'))
