@@ -4,12 +4,16 @@ import subprocess
 import time
 
 from functions.before_title_screen.create_a_new_save import create_new_save
-
+from functions.before_title_screen.check_ai_progress import check_ai_progress, check_last_progress
+from images.comparasion_script.perform_action import perform_quick, perform
 from .applescript_resize import emulator_resize
 from .check_for_save import check_for_save_file
 from .get_player_ready import start_new_game
+from functions.in_game_actions.tutorial_part_1 import get_out_of_truck
+from .pass_title_screen import pass_screen_title
 
 def check_os_launch_game():
+
 
     local_os = platform.system()
 
@@ -30,14 +34,25 @@ def check_os_launch_game():
                 print("The game is ready to launch!")
 
                 if check_for_save_file():
-                    continue
+                    print('Save file found! Will continue from save file')
+                    subprocess.call(['open', "rom/rom.gba"])
+                    emulator_resize()
+                    time.sleep(1)
+                    if check_last_progress()[0] == 'in_the_truck':
+                        pass_screen_title()
+                        time.sleep(2)
+                        print('are we in truck?')
+                        get_out_of_truck()
+                    elif check_last_progress()[0] == 'got_to_clock':
+                        print('got here at clock')
+                        pass_screen_title()
                 else:
                     double_check_save_file = input(
                         "=======================================================\nSince no save file was found, \nwould you like to start a new game? (Y/N): "
                     )
                     if double_check_save_file.casefold() == "y":
                         if create_new_save():
-                            subprocess.call(['open', "~../../rom/rom.gba"])
+                            subprocess.call(['open', "rom/rom.gba"])
                             emulator_resize()
                             time.sleep(1)
                             start_new_game()

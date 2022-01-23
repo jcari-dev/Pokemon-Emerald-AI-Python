@@ -114,4 +114,4 @@ def get_index_of_characters(name):
     # return index_locations
 
 
-# print(get_index_of_characters('Jennie'))
+# print(get_index_of_characters('Ines'))
