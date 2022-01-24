@@ -46,6 +46,7 @@ def check_os_launch_game():
                     elif check_last_progress()[0] == 'got_to_clock':
                         print('got here at clock')
                         pass_screen_title()
+                        #doesnt work whyyy
                 else:
                     double_check_save_file = input(
                         "=======================================================\nSince no save file was found, \nwould you like to start a new game? (Y/N): "
