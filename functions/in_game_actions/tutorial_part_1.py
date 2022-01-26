@@ -26,8 +26,7 @@ def walk_into_room():
     perform_quick('up')
     save_file()
     update_overall_progress("got_to_clock", True)
-    # perform_quick('x')
-    # perform_quick('x')
+
 
 def finish_talk_with_mom():
     print('starting talking with mom')
