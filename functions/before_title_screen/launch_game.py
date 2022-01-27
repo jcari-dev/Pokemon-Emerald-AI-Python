@@ -10,6 +10,7 @@ from .applescript_resize import emulator_resize
 from .check_for_save import check_for_save_file
 from .get_player_ready import start_new_game
 from functions.in_game_actions.tutorial_part_1 import get_out_of_truck
+from functions.in_game_actions.tutorial_part_2 import get_clock_to_actual_time
 from .pass_title_screen import pass_screen_title
 
 def check_os_launch_game():
@@ -41,11 +42,12 @@ def check_os_launch_game():
                     if check_last_progress()[0] == 'in_the_truck':
                         pass_screen_title()
                         time.sleep(2)
-                        print('are we in truck?')
+                        # print('are we in truck?')
                         get_out_of_truck()
                     elif check_last_progress()[0] == 'got_to_clock':
-                        print('got here at clock')
+                        print('Oh, you have not setup the in-game clock yet, lets do that!')
                         pass_screen_title()
+                        get_clock_to_actual_time()
                         #doesnt work whyyy
                 else:
                     double_check_save_file = input(

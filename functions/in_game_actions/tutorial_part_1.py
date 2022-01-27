@@ -1,4 +1,4 @@
-from turtle import up
+
 from images.comparasion_script.perform_action import perform_quick
 import pyautogui
 import json
