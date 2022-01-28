@@ -3,6 +3,7 @@ from images.comparasion_script.perform_action import perform_quick
 import pyautogui
 import json
 from functions.in_game_actions.save_file import save_file
+from .tutorial_part_2 import get_clock_to_actual_time
 from functions.before_title_screen.check_ai_progress import update_overall_progress
 
 def walk_into_room():
@@ -26,7 +27,7 @@ def walk_into_room():
     perform_quick('up')
     save_file()
     update_overall_progress("got_to_clock", True)
-
+    return get_clock_to_actual_time()
 
 def finish_talk_with_mom():
     print('starting talking with mom')

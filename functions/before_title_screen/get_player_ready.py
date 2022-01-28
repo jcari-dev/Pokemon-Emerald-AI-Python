@@ -43,7 +43,6 @@ def get_to_truck():
     get_out_of_truck()
 
 
-
 def write_name(name):
     actions_to_perform = get_index_of_characters(name)
     print(f'Will try to write {name}')

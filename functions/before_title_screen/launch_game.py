@@ -14,8 +14,6 @@ from functions.in_game_actions.tutorial_part_2 import get_clock_to_actual_time
 from .pass_title_screen import pass_screen_title
 
 def check_os_launch_game():
-
-
     local_os = platform.system()
 
     if local_os == "Windows":
@@ -48,7 +46,7 @@ def check_os_launch_game():
                         print('Oh, you have not setup the in-game clock yet, lets do that!')
                         pass_screen_title()
                         get_clock_to_actual_time()
-                        #doesnt work whyyy
+                    
                 else:
                     double_check_save_file = input(
                         "=======================================================\nSince no save file was found, \nwould you like to start a new game? (Y/N): "
