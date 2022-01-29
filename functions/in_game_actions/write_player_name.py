@@ -51,16 +51,9 @@ def get_movement_for_character(index_list):
             lower = False
             symbols = False
             caps = True
-            # print(y_axis, starting_point, 'got the 1?')
             starting_point[1] = 0
-            # print(starting_point[1])
-
-        # print(x_axis, y_axis)
-
 
         x_diff, y_diff = x_axis - starting_point[0], starting_point[1] - y_axis
-
-
 
         if x_diff < 0:
             for diff in range(abs(x_diff)):
@@ -99,7 +92,7 @@ def get_index_of_characters(name):
         ("!", "?", " ", " ", "/", "-"),
     )
 
-    # print(character_list[8][0])
+
     index_locations = []
 
     for index_name, name_character in enumerate(name):
@@ -108,10 +101,5 @@ def get_index_of_characters(name):
                 if name_character == inner_character:
                     index_locations.append([index_inner, index_array])
 
-    # print(index_locations)
-
     return get_movement_for_character(index_locations)
-    # return index_locations
 
-
-# print(get_index_of_characters('Ines'))
