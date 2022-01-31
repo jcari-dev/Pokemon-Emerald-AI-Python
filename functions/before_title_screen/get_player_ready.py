@@ -1,7 +1,6 @@
 import time
 import pyautogui
 import time
-from pyscreeze import ImageNotFoundException
 from images.comparasion_script.perform_action import perform, perform_quick
 from functions.in_game_actions.change_text_speed import change_text_speed_to_fast_and_start_game
 from functions.in_game_actions.write_player_name import get_index_of_characters
